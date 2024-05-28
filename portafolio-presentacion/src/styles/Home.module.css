@@ -93,3 +93,12 @@
   pointer-events: none;
   z-index: 1000;
 }
+
+@keyframes moveRight {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(200px); /* Ajusta la distancia según sea necesario */
+  }
+}

@@ -1,18 +1,46 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "@styles/Home.module.css";
 
-const Switch = ({onClick}) => {
+const Switch = ({onClick, isVis, animar}) => {
 
     const [isPressed, setIsPressed] = useState(false)
+    const [contTouch, setContTouch] = useState(0)
+    const [animate, setAnimate] = useState(false);
 
-    const onHandlerClick = () => {
+    const onHandlerClick = () => {  
+        if(contTouch  >= 3){
+            setIsPressed(true)
+            onClick()
+            return
+        }
         setIsPressed(!isPressed)
 
+        if(isPressed){
+            setContTouch(contTouch+1)
+            console.log(contTouch)
+        }
+        
         onClick()
     }
 
+    useEffect(() => {
+        if(animar){
+            setTimeout(() => {
+                setAnimate(true)
+            },400)
+        }
+    },[animar] )
+
+    useEffect(() => {
+        if(isVis == false && contTouch == 0){
+            setContTouch(1)
+            return 
+        }
+        onHandlerClick()
+    },[isVis])
+
     return (
-        <div className={styles.containerSwitch}>
+        <div className={styles.containerSwitch} style={{transform: animate ? "translateX(1000px)" : "none", transition:'transform 0.1s ease-in-out'}}>
             <div className={styles.principalSwitch}>
                 <div className={styles.swtitch} 
                     style={{

@@ -1,41 +1,62 @@
 import { Inter } from "next/font/google";
 import styles from "@styles/Home.module.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Popup from "@components/popup";
 import Switch from "@components/Switch";
+import Paw from "@components/Paw";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   const [position, setPosition] = useState({ x: 0, y: 0 })
-  const [color, setColor] = useState("black")
+  const [color, setColor] = useState("Transparent") //Transparent, black
   const [isVisible, setIsVisible] = useState(false)
-  const [handPosition, setHandPosition] = useState('translateY(100%)');
-
-  useEffect(() => {
-    // Animate the div to show it moving up to the middle
-    setTimeout(() => {
-      setHandPosition('translateY(-0.05%)'); // Move to the middle
-    }, 1000); // Start the animation after 1 second
-
-    // Animate the div to move down quickly
-    setTimeout(() => {
-      setHandPosition('translateY(100%)'); // Move down quickly
-    }, 2000); // Start the down animation after 2 seconds
-  }, []);
+  const [changePosition, setChangePosition] = useState(false)
+  const childRef = useRef(null);
+  const [destroy, setDestroy] = useState(false)
+  const [countOn, setCountON] = useState(0)
+  const [rotateHand, setRotateHand] = useState("Rotate(-90deg)")
+  const [animate, setAnimate] = useState(false)
 
   const handleMouseMove = (event) => {
     setPosition({ x: event.clientX, y: event.clientY });
   };
 
   const onStart = () => {
-    if(color == "transparent"){
-      setColor("Black")
-      setIsVisible(true)
+    if(countOn <= 2){
+      console.log(countOn)
+      if(color == "transparent"){
+          setColor("Black")
+          
+      }else{
+        setCountON(countOn+1)
+        setColor("transparent")
+        
+        
+        if(countOn == 2){
+          setDestroy(true)
+        }
+
+
+        if(!destroy){
+          childRef.current && childRef.current.moveHand()
+
+          setTimeout(() => {
+            if(changePosition){
+              setChangePosition(false)
+            }else{
+              setChangePosition(true)
+            }
+          }, 2000)
+        }
+
+        
+        
+      }
     }else{
-      setColor("transparent")
-      setIsVisible(false)
-    } 
+      setRotateHand("Rotate(90deg)")
+      setAnimate(true)
+    }
   }
 
     useEffect(() => {
@@ -63,13 +84,12 @@ export default function Home() {
       <div 
         className={styles.lightEffect}
         style={{
-          background: `radial-gradient(circle 100px at ${position.x}px ${position.y}px, transparent, ${color})`
+          background: `radial-gradient(circle 200px at ${position.x}px ${position.y}px, transparent, ${color})`
         }}
       />
-      <Switch onClick={onStart} />
-      <div style={{backgroundColor:'black', height:"100%", width:"10%", alignSelf:'center', bottom:0, position:'absolute', transform:handPosition, transition:'transform 1s ease-in-out', borderRadius: "10%"}}>
-
-      </div>
+      <Switch onClick={onStart} isVis={changePosition} animar={animate}/>
+      {destroy == false ? (<Paw ref={childRef} height={"80%"} top={"40%"} seconds={1}/>): (<Paw ref={childRef} istranslate={true} rotate={rotateHand} height={"600%"} top={"150%"} seconds={0.8} />)}
+      
     </div>
   );
 }
