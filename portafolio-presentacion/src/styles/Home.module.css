@@ -99,6 +99,43 @@
     transform: translateX(0);
   }
   to {
-    transform: translateX(200px); /* Ajusta la distancia según sea necesario */
+    transform: translateX(200px);
   }
+}
+
+@keyframes aparecer {
+  from {
+      width: 0;
+  }
+  to {
+      width: 100%;
+  }
+}
+
+.aparecerTexto {
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  white-space: nowrap;
+  background-color: transparent;
+  left: 0;
+  height: 100%;
+  width: 0;
+  z-index: 0;
+}
+
+.aparecer {
+  animation: aparecer 0.8s linear forwards;
+}
+
+.textoNombre {
+  color: yellow;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-family: 'Impact', sans-serif;
+  text-align: center;
+  font-size: 200px;
 }

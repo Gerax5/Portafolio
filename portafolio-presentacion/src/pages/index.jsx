@@ -89,7 +89,10 @@ export default function Home() {
       />
       <Switch onClick={onStart} isVis={changePosition} animar={animate}/>
       {destroy == false ? (<Paw ref={childRef} height={"80%"} top={"40%"} seconds={1}/>): (<Paw ref={childRef} istranslate={true} rotate={rotateHand} height={"600%"} top={"150%"} seconds={0.8} />)}
-      
+      <div className={`${styles.aparecerTexto} ${animate ? styles.aparecer : ''}`}>
+        <div className={styles.textoNombre}>Gerardo Pineda</div>
+        <div className={styles.textoNombre} style={{fontSize:"50px"}}>Full stack developer</div>
+      </div>
     </div>
   );
 }
