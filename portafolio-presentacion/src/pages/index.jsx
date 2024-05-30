@@ -22,7 +22,7 @@ export default function Home() {
   };
 
   const onStart = () => {
-    if(countOn <= 2){
+    if(countOn <= 1){
       console.log(countOn)
       if(color == "transparent"){
           setColor("Black")
@@ -32,7 +32,7 @@ export default function Home() {
         setColor("transparent")
         
         
-        if(countOn == 2){
+        if(countOn == 1){
           setDestroy(true)
         }
 
@@ -82,11 +82,12 @@ export default function Home() {
         width: "100vw",
         backgroundColor:"purple",
         position: 'relative', 
-        overflowX:'auto'
+        overflowX: 'hidden',
+        overflowY: objectVisible ? 'hidden': 'auto'
       }}
       onMouseMove={handleMouseMove}
     >
-      {objectVisible && (<Popup text={"Que alguien encienda las luces"} isVisible={isVisible}></Popup>)}
+      {objectVisible && (<Popup text={"Que alguien encienda las luces"} isVisible={isVisible} animar={animate}></Popup>)}
       {objectVisible && (<div 
         className={styles.lightEffect}
         style={{
@@ -97,6 +98,14 @@ export default function Home() {
         <Switch onClick={onStart} isVis={changePosition} animar={animate}/>
       )}
       {objectVisible == true ? destroy == false ? (<Paw ref={childRef} height={"80%"} top={"40%"} seconds={1}/>): (<Paw ref={childRef} istranslate={true} rotate={rotateHand} height={"600%"} top={"150%"} seconds={0.8} />):(<div></div>)}
+      {objectVisible == false ? (
+      <div className={`${styles.expandirMenu} ${styles.menu}`}>
+          <div>Sobre mi</div>
+          <div>Tecnologias</div>
+          <div>Mis proyectos</div>
+      </div>):(
+        <div></div>
+      )}
       <div className={`${styles.aparecerTexto} ${animate ? styles.aparecer : ''}`}>
         <div className={styles.textoNombre}>Gerardo Pineda</div>
         <div className={styles.textoNombre} style={{fontSize:"50px"}}>Full stack developer</div>

@@ -8,7 +8,7 @@ const Switch = ({onClick, isVis, animar}) => {
     const [animate, setAnimate] = useState(false);
 
     const onHandlerClick = () => {  
-        if(contTouch  >= 3){
+        if(contTouch  >= 2){
             setIsPressed(true)
             onClick()
             return
@@ -40,7 +40,7 @@ const Switch = ({onClick, isVis, animar}) => {
     },[isVis])
 
     return (
-        <div className={styles.containerSwitch} style={{transform: animate ? "translateX(1000px)" : "none", transition:'transform 0.1s ease-in-out'}}>
+        <div className={`${styles.containerSwitch}`} style={{transform: animate ? "translateX(1000px)" : "none", transition:'transform 0.1s ease-in-out'}}>
             <div className={styles.principalSwitch}>
                 <div className={styles.swtitch} 
                     style={{
