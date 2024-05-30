@@ -81,6 +81,10 @@ export default function Home() {
     router.push('/technologies')
   };
 
+  const goToMyProject = () => {
+    router.push('/myProjects')
+  }
+
 
   return (
     <Layout>
@@ -112,7 +116,7 @@ export default function Home() {
       <div className={`${styles.expandirMenu} ${styles.menu}`}>
           <div onClick={goToAboutPage} className={styles.textoMenu}>Sobre mi</div>
           <div onClick={goToTechnologiesPage} className={styles.textoMenu}>Tecnologias</div>
-          <div className={styles.textoMenu}>Mis proyectos</div>
+          <div className={styles.textoMenu} onClick={goToMyProject}>Mis proyectos</div>
       </div>):(
         <div></div>
       )}
