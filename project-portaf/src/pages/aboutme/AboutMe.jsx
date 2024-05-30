@@ -18,7 +18,7 @@ const Aboutme = () => {
     }
 
     const goToAboutMe = () => {
-        router.push('/aboutme')
+        router.push('/myProjects')
     }
 
     const goToGithub = () => {
