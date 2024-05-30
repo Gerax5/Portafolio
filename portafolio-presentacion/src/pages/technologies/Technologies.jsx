@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import Layout from '@components/Layout';
 import { motion } from 'framer-motion';
 import CardTechnology from "@components/CardTechnology";
-import technologies from ".";
+import { useRouter } from 'next/router';
 
 const backend = {
     "python" : {
@@ -84,6 +84,15 @@ const tecnologias = {
 }
 
 const Technologies = () => {
+    const router = useRouter();
+
+    const goToAboutPage = () => {
+        router.push('/aboutme')
+    };
+
+    const goToMainPage = () => {
+        router.push('/')
+    }
 
     return (
         <Layout>
@@ -98,8 +107,8 @@ const Technologies = () => {
             flexDirection:'column' }}
         >
             <div className={`${styles.expandirMenu} ${styles.menu}`}>
-                <div className={styles.textoMenu}>Juego</div>
-                <div className={styles.textoMenu}>About me</div>
+                <div className={styles.textoMenu} onClick={goToMainPage}>Inicio</div>
+                <div className={styles.textoMenu} onClick={goToAboutPage}>About me</div>
                 <div className={styles.textoMenu}>Mis proyectos</div>
             </div>
             <div style={{width:"100%", height:"100%", display:'flex', flexDirection:'column'}}>
