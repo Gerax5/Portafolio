@@ -167,3 +167,13 @@
   font-family: 'Impact', sans-serif;
   font-size: 20px;
 }
+
+.textoMenu {
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.textoMenu:hover {
+  color: #cccccc;
+  text-decoration: underline;
+}

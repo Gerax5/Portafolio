@@ -6,4 +6,5 @@ html, body {
   display: flex;
   flex-direction: row;
   overflow: hidden;
+  background-color: purple;
 }

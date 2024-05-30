@@ -3,11 +3,13 @@ import { useState, useEffect, useRef } from "react";
 import Popup from "@components/popup";
 import Switch from "@components/Switch";
 import Paw from "@components/Paw";
+import { useRouter } from 'next/router';
+import Layout from "@components/Layout";
 
 export default function Home() {
   const [position, setPosition] = useState({ x: 0, y: 0 })
   const [color, setColor] = useState("black") //Transparent, black
-  const [isVisible, setIsVisible] = useState(false)
+  const [isVisible, setIsVisible] = useState(true)
   const [changePosition, setChangePosition] = useState(false)
   const childRef = useRef(null);
   const [destroy, setDestroy] = useState(false)
@@ -15,7 +17,8 @@ export default function Home() {
   const [rotateHand, setRotateHand] = useState("Rotate(-90deg)")
   const [animate, setAnimate] = useState(false)
   const [objectVisible, setObjectVisible] = useState(true)
-  const [expand, setExpand] = useState(false)
+
+  const router = useRouter();
 
   const handleMouseMove = (event) => {
     setPosition({ x: event.clientX, y: event.clientY });
@@ -26,10 +29,11 @@ export default function Home() {
       console.log(countOn)
       if(color == "transparent"){
           setColor("Black")
-          
+          setIsVisible(true)
       }else{
         setCountON(countOn+1)
         setColor("transparent")
+        setIsVisible(false)
         
         
         if(countOn == 1){
@@ -56,9 +60,6 @@ export default function Home() {
       setRotateHand("Rotate(90deg)")
       setAnimate(true)
       setTimeout(() => {
-        setExpand(true)
-      },1000)
-      setTimeout(() => {
         setObjectVisible(false)
       },1000)
     }
@@ -72,8 +73,13 @@ export default function Home() {
         return () => clearTimeout(timer);
       }, []);
 
+      const goToAboutPage = () => {
+        router.push('/aboutme');
+      };
+
 
   return (
+    <Layout>
     <div 
       style={{ 
         display: 'flex', 
@@ -100,9 +106,9 @@ export default function Home() {
       {objectVisible == true ? destroy == false ? (<Paw ref={childRef} height={"80%"} top={"40%"} seconds={1}/>): (<Paw ref={childRef} istranslate={true} rotate={rotateHand} height={"600%"} top={"150%"} seconds={0.8} />):(<div></div>)}
       {objectVisible == false ? (
       <div className={`${styles.expandirMenu} ${styles.menu}`}>
-          <div>Sobre mi</div>
-          <div>Tecnologias</div>
-          <div>Mis proyectos</div>
+          <div onClick={goToAboutPage} className={styles.textoMenu}>Sobre mi</div>
+          <div className={styles.textoMenu}>Tecnologias</div>
+          <div className={styles.textoMenu}>Mis proyectos</div>
       </div>):(
         <div></div>
       )}
@@ -111,5 +117,6 @@ export default function Home() {
         <div className={styles.textoNombre} style={{fontSize:"50px"}}>Full stack developer</div>
       </div>
     </div>
+    </Layout>
   );
 }
