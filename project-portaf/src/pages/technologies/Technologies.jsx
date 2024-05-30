@@ -18,7 +18,7 @@ const backend = {
         "top": -15
     },
     "Node.js": {
-        "img": require("@assets/node.png"),
+        "img": require("@assets/Node.png"),
         "top": -18
     }
 }
@@ -28,7 +28,7 @@ const frontend = {
         "img": require("@assets/react.png")
     },
     "javaScript": {
-        "img": require("@assets/javascript.png"),
+        "img": require("@assets/Javascript.png"),
         "top": 10
     },
     "next": {
