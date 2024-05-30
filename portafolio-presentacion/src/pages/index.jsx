@@ -65,17 +65,21 @@ export default function Home() {
     }
   }
 
-    useEffect(() => {
-        const timer = setTimeout(() => {
-          setIsVisible(true);
-        }, 1000);
-    
-        return () => clearTimeout(timer);
-      }, []);
+  useEffect(() => {
+      const timer = setTimeout(() => {
+        setIsVisible(true);
+      }, 1000);
+  
+      return () => clearTimeout(timer);
+    }, []);
 
-      const goToAboutPage = () => {
-        router.push('/aboutme');
-      };
+  const goToAboutPage = () => {
+    router.push('/aboutme');
+  };
+  
+  const goToTechnologiesPage = () => {
+    router.push('/technologies')
+  };
 
 
   return (
@@ -107,7 +111,7 @@ export default function Home() {
       {objectVisible == false ? (
       <div className={`${styles.expandirMenu} ${styles.menu}`}>
           <div onClick={goToAboutPage} className={styles.textoMenu}>Sobre mi</div>
-          <div className={styles.textoMenu}>Tecnologias</div>
+          <div onClick={goToTechnologiesPage} className={styles.textoMenu}>Tecnologias</div>
           <div className={styles.textoMenu}>Mis proyectos</div>
       </div>):(
         <div></div>
