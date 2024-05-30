@@ -31,7 +31,7 @@ const Aboutme = () => {
                     </div>
                     <p style={{ color: 'white', wordWrap:'break-word', zIndex:2, fontSize:"25px" }}>Hey, my name is Gerardo Pineda. I am a third-year student in the Computer Science and Information Technology program at UVG. I really enjoy running in the mornings and sleeping. I've always been very interested in technology, so I always try to stay up to date with it. I like to be organized and responsible. This is my portfolio, I hope you find it interesting and entertaining.</p>
                 </div>
-                <div style={{width:"20%", height:"20%"}}>
+                <div style={{width:"20%", height:"20%",  padding:"20px", backgroundColor:'#F1E9D2', borderRadius:"25px", boxShadow: "inset 0 0 10px rgba(0, 0, 128, 0.5)"}}>
                     <img src={imagePath.default.src} style={{width:"100%", height:"100%", objectFit:'cover'}}/>
                 </div>
             </div>

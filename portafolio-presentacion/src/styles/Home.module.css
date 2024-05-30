@@ -177,3 +177,20 @@
   color: #cccccc;
   text-decoration: underline;
 }
+
+.cardTechnologies {
+  display: flex;
+  flex-direction: column;
+  height: 40%;
+  width: 30%;
+  background-color: purple;
+  border-radius: 25px;
+  margin-left: 1%;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.cardTechnologies:hover {
+  background-color: #3a3a8c;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+

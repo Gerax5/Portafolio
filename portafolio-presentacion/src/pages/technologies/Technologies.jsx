@@ -2,6 +2,86 @@ import styles from "@styles/Home.module.css";
 import { useEffect } from 'react';
 import Layout from '@components/Layout';
 import { motion } from 'framer-motion';
+import CardTechnology from "@components/CardTechnology";
+import technologies from ".";
+
+const backend = {
+    "python" : {
+        "img": require("@assets/python.png")
+    },
+    "php": {
+        "img": require("@assets/php.png"),
+        "top": 20
+    },
+    "java": {
+        "img": require("@assets/java.png"),
+        "top": -15
+    },
+    "Node.js": {
+        "img": require("@assets/node.png"),
+        "top": -18
+    }
+}
+
+const frontend = {
+    "React": {
+        "img": require("@assets/react.png")
+    },
+    "javaScript": {
+        "img": require("@assets/javascript.png"),
+        "top": 10
+    },
+    "next": {
+        "img": require("@assets/Next.png"),
+        "top": -5
+    },
+    "vite": {
+        "img": require("@assets/vite.png"),
+        "top": -5
+    }
+}
+
+const api = {
+    "Rest": {
+        "img":require("@assets/rest.png")
+    },
+    "GraphQL": {
+        "img": require("@assets/Graphql.png")
+    }
+}
+
+const bd = {
+    "PostgresSQL": {
+        "img": require("@assets/postgres.png")
+    },
+    "MariaDB": {
+        "img": require("@assets/maria.png"),
+        "top": 20
+    },
+    "phpMyAdmin":{
+        "img": require("@assets/phpmyadmin.png")
+    },
+    "mySQL": {
+        "img": require("@assets/mysql.png"),
+        "top": 20
+    },
+    "Oracle": {
+        "img": require("@assets/Oracle.png"),
+        "top": 30
+    }
+}
+
+const tecnologias = {
+    "Typescript": {
+        "img": require("@assets/typescript.png")
+    },
+    "Git": {
+        "img": require("@assets/gitN.png")
+    },
+    "Github": {
+        "img": require("@assets/github.png")
+    }
+}
 
 const Technologies = () => {
 
@@ -23,18 +103,17 @@ const Technologies = () => {
                 <div className={styles.textoMenu}>Mis proyectos</div>
             </div>
             <div style={{width:"100%", height:"100%", display:'flex', flexDirection:'column'}}>
-                <div style={{display:'flex', flexDirection:'row', height:"100%", width:"100%", alignItems:'center', justifyContent:'space-evenly'}}>
-                    <div style={{display:'flex', flexDirection:'column', height:"40%", width:"20%", backgroundColor:'red'}}>
-                        <div style={{fontSize:"40px", fontWeight:'bold'}}>
-                            Backend
-                        </div>
-                        <div>
-                            Cosas Cosas COsas
-                        </div>
-                    </div>
-                    <div style={{display:'flex', flexDirection:'column'}}>
-                        a
-                    </div>
+                <div style={{display:'flex', flexDirection:'row', height:"100%", width:"100%", alignItems:'center', justifyContent:'center', marginTop:"4%"}}>
+                    <CardTechnology titulo={"Backend"} technologies={backend}/>
+                    <CardTechnology titulo={"Frontend"} technologies={frontend} />
+                </div>
+                <div style={{display:'flex', flexDirection:'row', height:"100%", width:"100%", alignItems:'center', justifyContent:'center', marginTop:"1%"}}>
+                    <CardTechnology titulo={"Apis"} technologies={api} />
+                    <CardTechnology titulo={"Bases de datos"} technologies={bd} />
+                </div>
+                <div style={{display:'flex', flexDirection:'row', height:"100%", width:"100%", alignItems:'center', justifyContent:'center', marginTop:"1%"}}>
+                    <CardTechnology titulo={"Tenologias"} technologies={tecnologias} />
+                    
                 </div>
             </div>
         </motion.div>
