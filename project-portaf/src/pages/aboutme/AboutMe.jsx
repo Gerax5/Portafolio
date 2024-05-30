@@ -17,6 +17,10 @@ const Aboutme = () => {
         router.push('/')
     }
 
+    const goToAboutMe = () => {
+        router.push('/aboutme')
+    }
+
     const goToGithub = () => {
         window.open("https://github.com/Gerax5","_blank")
     }
@@ -40,7 +44,7 @@ const Aboutme = () => {
             <div className={`${styles.expandirMenu} ${styles.menu}`}>
                 <div className={styles.textoMenu} onClick={goToMainPage}>Inicio</div>
                 <div className={styles.textoMenu} onClick={goToTechnologiesPage}>Tecnologias</div>
-                <div className={styles.textoMenu}>Mis proyectos</div>
+                <div className={styles.textoMenu} onClick={goToAboutMe}>Mis proyectos</div>
             </div>
             <div style={{width:"100%", height:"100%", display:'flex', flexDirection:'row', marginTop:"5%", justifyContent:'space-evenly'}}>
                 <div style={{height:"100%", width:"30%", display:'flex', flexDirection:'column'}}>

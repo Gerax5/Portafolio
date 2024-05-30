@@ -17,6 +17,7 @@ export default function Home() {
   const [rotateHand, setRotateHand] = useState("Rotate(-90deg)")
   const [animate, setAnimate] = useState(false)
   const [objectVisible, setObjectVisible] = useState(true)
+  const [text, setText] = useState("Enciende las luces")
 
   const router = useRouter();
 
@@ -28,6 +29,7 @@ export default function Home() {
     if(countOn <= 1){
       console.log(countOn)
       if(color == "transparent"){
+          setText("Vuelve a encenderlas")
           setColor("Black")
           setIsVisible(true)
       }else{
@@ -101,7 +103,7 @@ export default function Home() {
       }}
       onMouseMove={handleMouseMove}
     >
-      {objectVisible && (<Popup text={"Que alguien encienda las luces"} isVisible={isVisible} animar={animate}></Popup>)}
+      {objectVisible && (<Popup text={text} isVisible={isVisible} animar={animate}></Popup>)}
       {objectVisible && (<div 
         className={styles.lightEffect}
         style={{

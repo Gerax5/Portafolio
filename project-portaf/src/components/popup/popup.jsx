@@ -20,7 +20,7 @@ const Popup = ({text, isVisible, animar}) => {
 
   
   return (
-      <div className={`${styles.popup} ${isV ? styles.visible : ''} `} style={{transform: animate ? "translateX(500000px)" : "none"}}>
+      <div className={`${styles.popup} ${isV ? styles.visible : ''} `} style={{transform: animate ? "translateX(500000px)" : "none", fontSize:"30px", justifyContent:'center', display:'flex', alignItems:'center'}}>
         {text}
       </div>
   )

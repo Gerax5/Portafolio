@@ -94,6 +94,10 @@ const Technologies = () => {
         router.push('/')
     }
 
+    const goToMyProject = () => {
+        router.push('/myProjects')
+      }
+
     return (
         <Layout>
         <motion.div
@@ -109,7 +113,7 @@ const Technologies = () => {
             <div className={`${styles.expandirMenu} ${styles.menu}`}>
                 <div className={styles.textoMenu} onClick={goToMainPage}>Inicio</div>
                 <div className={styles.textoMenu} onClick={goToAboutPage}>About me</div>
-                <div className={styles.textoMenu}>Mis proyectos</div>
+                <div className={styles.textoMenu} onClick={goToMyProject}>Mis proyectos</div>
             </div>
             <div style={{width:"100%", height:"100%", display:'flex', flexDirection:'column'}}>
                 <div style={{display:'flex', flexDirection:'row', height:"100%", width:"100%", alignItems:'center', justifyContent:'center', marginTop:"4%"}}>
