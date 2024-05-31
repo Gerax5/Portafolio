@@ -8,7 +8,7 @@ const CardProjects = ({img, title, link}) => {
 
     return (
         <div className={styles.outerDiv} style={{marginLeft:"1%"}} onClick={goToLink}>
-            <div style={{height:"80%", width:"100%"}}>
+            <div className={styles.imageProject}>
                 <img src={img} style={{height:"100%", width:"100%", objectFit:'contain'}}/>
             </div>
             <div style={{height:"20%", width:"100%", textAlign:'center', fontSize:"40px", color:'white'}}>
