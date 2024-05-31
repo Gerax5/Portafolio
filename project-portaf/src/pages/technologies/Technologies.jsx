@@ -54,7 +54,7 @@ const Technologies = () => {
                                     </div>
                                     <div style={{width:"100%", height:"50%", display:'flex', flexDirection:'row', marginTop:"10%"}}>
                                         <div style={{height:"100%", width:"50%"}}>
-                                            <img src={require("@assets/Next.png").default.src} style={{height:"100%", width:"100%", objectFit:'contain'}} /> 
+                                            <img src={require("@assets/java.png").default.src} style={{height:"100%", width:"100%", objectFit:'contain'}} /> 
                                         </div>
                                         <div style={{height:"100%", width:"50%"}}>
                                             <img src={require("@assets/Node.png").default.src} style={{height:"100%", width:"100%", objectFit:'contain'}} /> 
@@ -84,10 +84,10 @@ const Technologies = () => {
                                     </div>
                                     <div style={{width:"100%", height:"50%", display:'flex', flexDirection:'row', marginTop:"10%"}}>
                                         <div style={{height:"100%", width:"50%"}}>
-                                            <img src={require("@assets/rest.png").default.src} style={{height:"100%", width:"100%", objectFit:'contain'}} /> 
+                                            <img src={require("@assets/Next.png").default.src} style={{height:"100%", width:"100%", objectFit:'contain'}} /> 
                                         </div>
                                         <div style={{height:"100%", width:"50%"}}>
-                                            <img src={require("@assets/Graphql.png").default.src} style={{height:"100%", width:"100%", objectFit:'contain'}} /> 
+                                            <img src={require("@assets/vite.png").default.src} style={{height:"100%", width:"100%", objectFit:'contain'}} /> 
                                         </div>
                                     </div>
                                     
