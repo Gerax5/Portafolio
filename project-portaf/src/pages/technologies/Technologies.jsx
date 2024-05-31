@@ -1,10 +1,7 @@
 import styles from "@styles/Home.module.css";
-import { useEffect } from 'react';
 import Layout from '@components/Layout';
 import { motion } from 'framer-motion';
-import CardTechnology from "@components/CardTechnology";
 import { useRouter } from 'next/router';
-
 
 const Technologies = () => {
     const router = useRouter();
@@ -109,10 +106,10 @@ const Technologies = () => {
                                 <div className={styles.backContent} style={{display:'flex', flexDirection:'column', justifyContent:'space-evenly', padding:"20px", alignItems:'center'}}>
                                     <div style={{width:"100%", height:"50%", display:'flex', flexDirection:'row', marginTop:"-5%"}}>
                                         <div style={{height:"100%", width:"50%"}}>
-                                            <img src={require("@assets/react.png").default.src} style={{height:"100%", width:"100%", objectFit:'contain'}} /> 
+                                            <img src={require("@assets/rest.png").default.src} style={{height:"100%", width:"100%", objectFit:'contain'}} /> 
                                         </div>
                                         <div style={{height:"100%", width:"50%"}}>
-                                            <img src={require("@assets/Javascript.png").default.src} style={{height:"100%", width:"100%", objectFit:'contain'}} /> 
+                                            <img src={require("@assets/Graphql.png").default.src} style={{height:"100%", width:"100%", objectFit:'contain'}} /> 
                                         </div>
                                     </div>
                                     
